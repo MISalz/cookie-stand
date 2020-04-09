@@ -49,5 +49,4 @@ var Store5 = {
   AvgCookieSale: 4.6,
   Hoursofoperation: '6:00am to 8:00pm',
   tlHours: 14
-
 }
