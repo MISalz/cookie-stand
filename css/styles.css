@@ -1,0 +1,29 @@
+
+
+.locations {background-color: bisque;
+    margin-top: 10em;
+    font-family: cursive;
+    font-style: oblique;
+}
+
+h1{font-weight: 10em;
+    font-size: 8em;
+    text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+body{margin-top: 02em;}
+
+h2{font-weight: 10em;
+    font-size: 2em;
+    text-align: center;
+    text-decoration-color: chocolate;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+body{margin-top: 02em;}
+
+header{margin-bottom: .5em;
+    margin-left: .05em;
+background-color:bisque;
+}
+img {
+    align-content: center;
+    size: 3em;
+}
