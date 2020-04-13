@@ -8,135 +8,205 @@
 // Display the values of each array as unordered lists in the browser
 // Calculating the sum of these hourly totals
 
-var pSalEl = document.getElementById('sales-table');
-var HoursOP = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
-//Generate random number function
-for(var i = 0; i < HoursOP.length; i++){
-  var trb = document.createElement('tr');
-  trb.textContent = HoursOP[i];
-  pSalEl.appendChild(trb);
-}
-
-
-var Store1 = {
-  Location: 'Seattle',
-  MinCust: 23,
-  MaxCust: 65,
-  AvgCookieSale: 6.3,
-  HoursofOperation: '6:00am to 8:00pm',
+//var pSalEl = document.getElementById('sales-table');
+var pEl = document.getElementById('stores');
+var hoursOP = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
+//Seattle store
+var store1 = {
+  location: 'Seattle',
+  minCust: 23,
+  maxCust: 65,
+  avgCookieSale: 6.3,
+  totalCookies: 0, // Calculating the sum of these hourly totals
+  totalCookiesArr: [], 
+  //generate a random number of customers per hour.
   randomizerCH: function() {
-    for (var i=0; i < HoursOP.length; i++)
-      var RandomizerCH = Math.floor(Math.random()*(this.MaxCust-this.MinCust)+1+this.MinCust);
-    console.log(RandomizerCH);
-    return RandomizerCH;
+    for (var i=0; i < hoursOP.length; i++)
+      var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
+    return randomizerCH;
   },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
   custPerHourcal: function() {
-    for(var i=0; i <HoursOP.length; i++){
-      var custPerHourcal = this.AvgCookieSale * this.randomizerCH();
-      console.log(custPerHourcal);
-      return Math.round(custPerHourcal);
+    for(var i=0; i <hoursOP.length; i++){
+      var custPerHourcal = this.avgCookieSale * this.randomizerCH();
+      this.totalCookiesArr.push (Math.round(custPerHourcal));
+      this.totalCookies = this.totalCookies + (Math.round(custPerHourcal));
     }
   },
-};
-Store1.custPerHourcal();
-Store1.randomizerCH();
-for(var j = 0; j < HoursOP.length; j++){
-  var trb2 = document.createElement('td');
-  trb2.textContent = Store1.randomizerCH();
-  pSalEl.appendChild(trb2);
-}
-
-/*
-var Store2 = {
-  Location: 'Tokyo',
-  MinCust: 3,
-  MaxCust: 24,
-  AvgCookieSale: 1.2,
-  Hoursofoperation: '6:00am to 8:00pm',
-  TlHours: 14,
-  CustPerHour:[],
-  RandomizerCH: function (){
-    var RandomizerCH = Math.floor(Math.random()*(this.MaxCust-this.MinCust)+1+this.MinCust);
-    console.log(RandomizerCH);
-    return RandomizerCH;
-  },
-  //calculate simulated cookies purchased for each hour
-  custPerHourcal: function() {
-    for(var i=0; i<HoursOP.length; i++){
-      var custPerHourcal = this.AvgCookieSale * this.randomizerCH();
-      return Math.round(custPerHourcal);
+  render: function(){
+    // Display the values of each array as unordered lists in the browser
+    var liEl = document.createElement('li');
+    liEl.textContent = `${this.location}`;
+    pEl.appendChild(liEl);
+    for (var i=0; i<hoursOP.length; i++){
+      liEl = document.createElement('li');
+      liEl.textContent = `${hoursOP[i]}: ${this.totalCookiesArr[i]} cookies`;
+      pEl.appendChild(liEl);
     }
-  },
-};
-Store2.custPerHourcal();
-Store2.randomizerCH();
-
-var Store3 = {
-  Location: 'Dubai',
-  MinCust: 11,
-  MaxCust: 38,
-  AvgCookieSale: 3.7,
-  Hoursofoperation: '6:00am to 8:00pm',
-  tlHours: 14,
-  CustPerHour:[],
-  RandomizerCH: function (){
-    var RandomizerCH = Math.floor(Math.random()*(this.MaxCust-this.MinCust)+1+this.MinCust);
-    console.log(RandomizerCH);
-    return RandomizerCH;
-  },
-  //calculate simulated cookies purchased for each hour
-  custPerHourcal: function() {
-    for(var i=0; i<HoursOP.length; i++){
-      var custPerHourcal = this.AvgCookieSale * this.randomizerCH();
-      return Math.round(custPerHourcal);
-    }
-  },
-};
-Store3.custPerHourcal();
-Store3.randomizerCH();
-var Store4 = {
-  Location: 'Paris',
-  MinCust: 20,
-  MaxCust: 38,
-  AvgCookieSale: 2.3,
-  Hoursofoperation: '6:00am to 8:00pm',
-  tlHours: 14,
-  CustPerHour:[],
-  RandomizerCH: function (){
-    var RandomizerCH = Math.floor(Math.random()*(this.MaxCust-this.MinCust)+1+this.MinCust);
-    console.log(RandomizerCH);
-    return RandomizerCH;
-  },
-  //calculate simulated cookies purchased for each hour
-  custPerHourcal: function() {
-    for(var i=0; i<HoursOP.length; i++){
-      var custPerHourcal = this.AvgCookieSale * this.randomizerCH();
-      return Math.round(custPerHourcal);
-    }
-  },
-};
-Store4.custPerHourcal();
-Store4.randomizerCH();
-var Store5 = {
-  Location: 'Lima',
-  MinCust: 2,
-  MaxCust: 16,
-  AvgCookieSale: 4.6,
-  Hoursofoperation: '6:00am to 8:00pm',
-  tlHours: 14,
-  CustPerHour:[],
-  RandomizerCH: function (){
-    var RandomizerCH = Math.floor(Math.random()*(this.MaxCust-this.MinCust)+1+this.MinCust);
-    console.log(RandomizerCH);
-    return RandomizerCH;
+    liEl = document.createElement('li');
+    liEl.textContent = `Total cookies: ${this.totalCookies}`;
+    pEl.appendChild(liEl);
   }
-  ,//calculate simulated cookies purchased for each hour
-  custPerHourcal: function() {
-    for(var i=0; i<HoursOP.length; i++){
-      var custPerHourcal = this.AvgCookieSale * this.randomizerCH();
-      return Math.round(custPerHourcal);}
-  },
 };
-Store5.custPerHourcal();
-Store5.randomizerCH();
-*/
+store1.custPerHourcal();
+store1.render();
+
+//Tokyo store
+var store2 = {
+  location: 'Tokyo',
+  minCust: 3,
+  maxCust: 24,
+  avgCookieSale: 1.2,
+  totalCookies: 0, // Calculating the sum of these hourly totals
+  totalCookiesArr: [], 
+  //generate a random number of customers per hour.
+  randomizerCH: function() {
+    for (var i=0; i < hoursOP.length; i++)
+      var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
+    return randomizerCH;
+  },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
+  custPerHourcal: function() {
+    for(var i=0; i <hoursOP.length; i++){
+      var custPerHourcal = this.avgCookieSale * this.randomizerCH();
+      this.totalCookiesArr.push (Math.round(custPerHourcal));
+      this.totalCookies = this.totalCookies + (Math.round(custPerHourcal));
+    }
+  },
+  render: function(){
+    // Display the values of each array as unordered lists in the browser
+    var liEl = document.createElement('li');
+    liEl.textContent = `${this.location}`;
+    pEl.appendChild(liEl);
+    for (var i=0; i<hoursOP.length; i++){
+      liEl = document.createElement('li');
+      liEl.textContent = `${hoursOP[i]}: ${this.totalCookiesArr[i]} cookies`;
+      pEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total cookies: ${this.totalCookies}`;
+    pEl.appendChild(liEl);
+  }
+};
+store2.custPerHourcal();
+store2.render();
+
+//Dubai store
+var store3 = {
+  location: 'Dubai',
+  minCust: 11,
+  maxCust: 38,
+  avgCookieSale: 3.7,
+  totalCookies: 0, // Calculating the sum of these hourly totals
+  totalCookiesArr: [], 
+  //generate a random number of customers per hour.
+  randomizerCH: function() {
+    for (var i=0; i < hoursOP.length; i++)
+      var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
+    return randomizerCH;
+  },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
+  custPerHourcal: function() {
+    for(var i=0; i <hoursOP.length; i++){
+      var custPerHourcal = this.avgCookieSale * this.randomizerCH();
+      this.totalCookiesArr.push (Math.round(custPerHourcal));
+      this.totalCookies = this.totalCookies + (Math.round(custPerHourcal));
+    }
+  },
+  render: function(){
+    // Display the values of each array as unordered lists in the browser
+    var liEl = document.createElement('li');
+    liEl.textContent = `${this.location}`;
+    pEl.appendChild(liEl);
+    for (var i=0; i<hoursOP.length; i++){
+      liEl = document.createElement('li');
+      liEl.textContent = `${hoursOP[i]}: ${this.totalCookiesArr[i]} cookies`;
+      pEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total cookies: ${this.totalCookies}`;
+    pEl.appendChild(liEl);
+  }
+};
+store3.custPerHourcal();
+store3.render();
+
+//Paris store
+var store4 = {
+  location: 'Paris',
+  minCust: 20,
+  maxCust: 38,
+  avgCookieSale: 2.3,
+  totalCookies: 0, // Calculating the sum of these hourly totals
+  totalCookiesArr: [], 
+  //generate a random number of customers per hour.
+  randomizerCH: function() {
+    for (var i=0; i < hoursOP.length; i++)
+      var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
+    return randomizerCH;
+  },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
+  custPerHourcal: function() {
+    for(var i=0; i <hoursOP.length; i++){
+      var custPerHourcal = this.avgCookieSale * this.randomizerCH();
+      this.totalCookiesArr.push (Math.round(custPerHourcal));
+      this.totalCookies = this.totalCookies + (Math.round(custPerHourcal));
+    }
+  },
+  render: function(){
+    // Display the values of each array as unordered lists in the browser
+    var liEl = document.createElement('li');
+    liEl.textContent = `${this.location}`;
+    pEl.appendChild(liEl);
+    for (var i=0; i<hoursOP.length; i++){
+      liEl = document.createElement('li');
+      liEl.textContent = `${hoursOP[i]}: ${this.totalCookiesArr[i]} cookies`;
+      pEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total cookies: ${this.totalCookies}`;
+    pEl.appendChild(liEl);
+  }
+};
+store4.custPerHourcal();
+store4.render();
+
+//Lima store
+var store5 = {
+  location: 'Lima',
+  minCust: 2,
+  maxCust: 16,
+  avgCookieSale: 4.6,
+  totalCookies: 0, // Calculating the sum of these hourly totals
+  totalCookiesArr: [], 
+  //generate a random number of customers per hour.
+  randomizerCH: function() {
+    for (var i=0; i < hoursOP.length; i++)
+      var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
+    return randomizerCH;
+  },
+  //Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
+  custPerHourcal: function() {
+    for(var i=0; i <hoursOP.length; i++){
+      var custPerHourcal = this.avgCookieSale * this.randomizerCH();
+      this.totalCookiesArr.push (Math.round(custPerHourcal));
+      this.totalCookies = this.totalCookies + (Math.round(custPerHourcal));
+    }
+  },
+  render: function(){
+    // Display the values of each array as unordered lists in the browser
+    var liEl = document.createElement('li');
+    liEl.textContent = `${this.location}`;
+    pEl.appendChild(liEl);
+    for (var i=0; i<hoursOP.length; i++){
+      liEl = document.createElement('li');
+      liEl.textContent = `${hoursOP[i]}: ${this.totalCookiesArr[i]} cookies`;
+      pEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = `Total cookies: ${this.totalCookies}`;
+    pEl.appendChild(liEl);
+  }
+};
+store5.custPerHourcal();
+store5.render();
