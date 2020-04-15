@@ -5,60 +5,49 @@
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
 <header>
-    <H1>Pat's Bakery</H1>
+    <h1>Pat's Bakery</h1>
     
 
-    <div class="navbar"> 
+    <nav id="navbar"> 
         <a href="index.html" >Home</a>  
         <a href="sales.html" >Sales</a>  
             
-    </Nav>
+    </nav>
 </header>
-<div class="salmon"> 
-    <div class=image-text> Cookies Now Available!</div>
+   
 <body>
+    <div id=image-text> Cookies Now Available!</div>
+    <div id="salmon"> </div>
     <br>
     <br>
-        <Div class ="Locations">
+        <div id ="Locations">
         <p>Salmon Cookies available at all locations</p><br>
         <br>
 
         <p> Current Hours of Operation: 6:00am-8:00pm</p>
-    </Div>
+    </div>
 
     <!--Hours of Operation  6:00 AM to 8:00 PM for all locations (14hrs)
     * The minimum number of customers per hour.
     * The maximum number of customers per hour.
     * The average number of cookies purchased per customer.
-    * need to be able to add and remove locations from the daily            projections report
+    * need to be able to add and remove locations from the daily projections report
     * need to be able to easily modify the input numbers for each location based on day of the week, special events, and other factors
  
     -->
-<div><table id="sales-table">
-    <tr><th class=hours></th><th class=EstCust></th></tr>
-<tr><td Class=Row1Cell1></td><td Class=Row2Cell1></td></tr>
-<tr><td Class=Row1Cell2></td><td Class=Row2Cell2></td></tr>
-<tr><td Class=Row1Cell3></td><td Class=Row2Cell3></td></tr>
-<tr><td Class=Row1Cell4></td><td Class=Row2Cell4></td></tr>
-<tr><td Class=Row1Cell5></td><td Class=Row2Cell5></td></tr>
-<tr><td Class=Row1Cell6></td><td Class=Row2Cell6></td></tr>
-<tr><td Class=Row1Cell7></td><td Class=Row2Cell7></td></tr>
-<tr><td Class=Row1Cell8></td><td Class=Row2Cell8></td></tr>
-<tr><td Class=Row1Cell9></td><td Class=Row2Cell9></td></tr>
-<tr><td Class=Row1Cell10></td><td Class=Row2Cell10></td></tr>
-<tr><td Class=Row1Cell11></td><td Class=Row2Cell11></td></tr>
-<tr><td Class=Row1Cell12></td><td Class=Row2Cell12></td></tr>
-<tr><td Class=Row1Cell13></td><td Class=Row2Cell13></td></tr>
-<tr><td Class=Row1Cell14></td><td Class=Row2Cell14></td></tr>
-<tr><td Class=Row1Cell15></td><td Class=Row2Cell15></td></tr>
-   
-</table>
+<div>
+    <!-- <table id="sales-table">
+        <tr><th id="location">Location</th>
+            <th id="hours">Hours</th>
+            <th id="EstCust">EstCust</th>
+        </tr>
+       </table> -->
+<ul id = "stores"></ul>
 </div>
 
-
+<script src ="js/app.js"></script>
 </body><br>
 <footer>
 &copy; Michelle Salazar
 </footer>
 
-<script src ='js/app.js' type='text/Javascript'></script>
