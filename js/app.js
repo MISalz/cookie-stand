@@ -9,6 +9,7 @@
 // Calculating the sum of these hourly totals
 
 //var pSalEl = document.getElementById('sales-table');
+
 var pEl = document.getElementById('stores');
 var hoursOP = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 //Seattle store
@@ -18,9 +19,9 @@ var store1 = {
   maxCust: 65,
   avgCookieSale: 6.3,
   totalCookies: 0, // Calculating the sum of these hourly totals
-  totalCookiesArr: [], 
+  totalCookiesArr: [],
   //generate a random number of customers per hour.
-  randomizerCH: function() {
+   randomizerCH: function() {
     for (var i=0; i < hoursOP.length; i++)
       var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
     return randomizerCH;
@@ -58,7 +59,7 @@ var store2 = {
   maxCust: 24,
   avgCookieSale: 1.2,
   totalCookies: 0, // Calculating the sum of these hourly totals
-  totalCookiesArr: [], 
+  totalCookiesArr: [],
   //generate a random number of customers per hour.
   randomizerCH: function() {
     for (var i=0; i < hoursOP.length; i++)
@@ -98,7 +99,7 @@ var store3 = {
   maxCust: 38,
   avgCookieSale: 3.7,
   totalCookies: 0, // Calculating the sum of these hourly totals
-  totalCookiesArr: [], 
+  totalCookiesArr: [],
   //generate a random number of customers per hour.
   randomizerCH: function() {
     for (var i=0; i < hoursOP.length; i++)
@@ -138,7 +139,7 @@ var store4 = {
   maxCust: 38,
   avgCookieSale: 2.3,
   totalCookies: 0, // Calculating the sum of these hourly totals
-  totalCookiesArr: [], 
+  totalCookiesArr: [],
   //generate a random number of customers per hour.
   randomizerCH: function() {
     for (var i=0; i < hoursOP.length; i++)
@@ -178,7 +179,7 @@ var store5 = {
   maxCust: 16,
   avgCookieSale: 4.6,
   totalCookies: 0, // Calculating the sum of these hourly totals
-  totalCookiesArr: [], 
+  totalCookiesArr: [],
   //generate a random number of customers per hour.
   randomizerCH: function() {
     for (var i=0; i < hoursOP.length; i++)
