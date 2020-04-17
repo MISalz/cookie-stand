@@ -244,3 +244,17 @@ new StoresData('Tokyo', 3 , 24, 1.2);
 new StoresData('Dubai',11,38,3.7);
 new StoresData('Paris', 20, 38, 2.3);
 new StoresData('Lima', 2, 16, 4.6);
+
+for(var i=0; i <hoursOP.length; i++);
+// Display the values of each array as unordered lists in the browser
+var liEl = document.createElement('li');
+liEl.textContent = `${this.location}`;
+pEl.appendChild(liEl);
+for (var j=0; j<hoursOP.length; i++){
+  liEl = document.createElement('li');
+  liEl.textContent = `${hoursOP[j]}: ${this.totalCookiesArr[i]} cookies`;
+  pEl.appendChild(liEl);
+}
+liEl = document.createElement('li');
+liEl.textContent = `Total cookies: ${this.totalCookies}`;
+pEl.appendChild(liEl);
