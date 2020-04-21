@@ -1,4 +1,8 @@
-
+* {
+    margin:auto;
+    padding: 20px;
+    align-content: center;
+}
 .navbar {
     width: 100%;
     overflow: auto;
@@ -6,50 +10,52 @@
       }
 .navbar a {
     float: left;
-    background-color: ;
+    background-color: bisque;
     padding: 12px;
-    color: #e68a00;
+    color: #412803;
     text-decoration: black ;
     font-size: 30px;
     width: 25%; 
     text-align: center; }
-header{
-    margin-left: .05em;
+header {
+    margin-left: 20px;
     background-color:bisque;
     }
-.salmon {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("../images/salmon.png");
-        height: 50%;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        color: white;
-        font-size:30px;
-        text-align: center;
-}
+
 .locations {background-color: bisque;
     margin-top: 10em;
+    font-size: 20px;
     font-family: cursive;
     font-style: oblique;
 }
-
-h1{font-weight: 10em;
-    font-size: 8em;
+h1 {font-weight: 20px;
+    font-size: 60px;
     text-align: center;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-body{margin-top: 02em;
+p, ul, ol, li {font-weight: 20px;
+    font-size: 50px;
+    text-align: center;
 }
-/* #sales-table{
+body{margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+form {
+    width: 40%;
     border-style: solid;
-    border-width: 50px;
     font-size:30px;
     color:Black;
-    border-width: 1px;
+    border-width: 4px;
     border-color: black;
     background-color: white;
-    border-collapse: collapse;
     box-shadow: grey;
-    float: center;
-} */
+    padding: 30px,20px3;
+} 
+button {font-size: 30px;
+    background-color: salmon;
+    box-shadow: grey;
+    
+}
+placeholder{
+    text-align: center;
+}
