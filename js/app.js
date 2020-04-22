@@ -1,17 +1,12 @@
 'use strict';
 
-//DONE:create separate JS object literals for each shop location that outputs the following to the sales.html:
-// DONE: Stores the min/max hourly customers, and the average cookies per customer, in object properties
-// DONE: Uses a method of that object to generate a random number of customers per hour. Objects/Math/random
-// Done: Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated
-// Store the results for each location in a separate array… perhaps as a property of the object representing that location
-// Display the values of each array as unordered lists in the browser
-// Calculating the sum of these hourly totals
 
+//global variables to be used within the script. newstorearr stores all store data
 var pEl = document.getElementById('stores');
 var hoursOP = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 var newStoreArr =[];
 
+//stores data for each store as its added. stores total cookies per day, total cookies for hour, pushes to storearr
 function StoresData(location,minCust,maxCust,avgCookieSale,totalCookies = 0){
   this.location = location;
   this.minCust = minCust;
@@ -23,23 +18,25 @@ function StoresData(location,minCust,maxCust,avgCookieSale,totalCookies = 0){
   this.renderRows();
   newStoreArr.push(this);
 }
+//creates a random number based on the min/max estimated customers
 StoresData.prototype.randomizerCH = function(){
   var randomizerCH = Math.floor(Math.random()*(this.maxCust-this.minCust)+1+this.minCust);
   return randomizerCH;
 };
+//creates a estimated customer per hour based on the  avg cookies per day *  randomizer
 StoresData.prototype.custPerHourcal = function(){
   for(var i=0; i <hoursOP.length; i++){
     var custPerHourcal = this.avgCookieSale * this.randomizerCH();
     this.totalCookiesArr.push(Math.round(custPerHourcal));
   }
 };
-//Header Row
+//creates a Header Row
 function renderHeader(){
   var rowEl = document.createElement('tr');
   var headEl = document.createElement('th');
   var hEl = document.createElement('th');
   rowEl.appendChild(hEl);
-
+//loops through the hoursOP and creates a table row with each of the hour sof operation
   for (var i=0; i<hoursOP.length; i++){
     headEl = document.createElement('th');
     var dataEl = document.createElement('td');
@@ -47,6 +44,7 @@ function renderHeader(){
     headEl.appendChild(dataEl);
     rowEl.appendChild(dataEl);
   }
+  // adds column with the daily total per location
   var totalEL = document.createElement('th');
   var totalData = document.createElement('td');
 
@@ -55,6 +53,7 @@ function renderHeader(){
   rowEl.appendChild(totalEL);
   pEl.appendChild(rowEl);
 }
+//creates the table rows to insert location data, adds the total cookies per location per hour into one total row
 StoresData.prototype.renderRows = function(){
   var tableRowEl = document.createElement('tr');
   pEl.appendChild(tableRowEl);
@@ -72,6 +71,7 @@ StoresData.prototype.renderRows = function(){
   rowTotalEl.textContent = total;
   tableRowEl.appendChild(rowTotalEl);
 };
+//creates footer row data lable per hour, loops tthrough location array and calls for stored data in array
 function renderFooter(){
   var tRowEl = document.createElement('tr');
   pEl.appendChild(tRowEl);
@@ -84,6 +84,7 @@ function renderFooter(){
     for(var j=0; j<newStoreArr.length; j++){
       totalPerhour += newStoreArr[j].totalCookiesArr[i];
     }
+    //adds the total per day and accumulates the 
     var tdEL = document.createElement('td');
     tdEL.textContent = totalPerhour;
     tRowEl.appendChild(tdEL);
@@ -93,7 +94,9 @@ function renderFooter(){
   tlsAllEl.textContent = totalPerDay;
   tRowEl.appendChild(tlsAllEl);
 }
+//functions and changes to the data table have to be listed above the new store adds.
 renderHeader();
+
 
 new StoresData('Seattle', 23, 65, 6.3);
 new StoresData('Tokyo', 3 , 24, 1.2);
@@ -101,4 +104,6 @@ new StoresData('Dubai',11, 38, 3.7);
 new StoresData('Paris', 20, 38, 2.3);
 new StoresData('Lima', 2, 16, 4.6);
 
+//render footer after all other functions and changes to table have ran
 renderFooter();
+
