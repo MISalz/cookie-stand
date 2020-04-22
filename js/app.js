@@ -36,7 +36,7 @@ function renderHeader(){
   var headEl = document.createElement('th');
   var hEl = document.createElement('th');
   rowEl.appendChild(hEl);
-//loops through the hoursOP and creates a table row with each of the hour sof operation
+  //loops through the hoursOP and creates a table row with each of the hour sof operation
   for (var i=0; i<hoursOP.length; i++){
     headEl = document.createElement('th');
     var dataEl = document.createElement('td');
