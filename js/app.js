@@ -84,7 +84,7 @@ function renderFooter(){
     for(var j=0; j<newStoreArr.length; j++){
       totalPerhour += newStoreArr[j].totalCookiesArr[i];
     }
-    //adds the total per day and accumulates the 
+    //adds the total per day and accumulates the totals
     var tdEL = document.createElement('td');
     tdEL.textContent = totalPerhour;
     tRowEl.appendChild(tdEL);
