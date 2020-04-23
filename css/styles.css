@@ -31,12 +31,24 @@ header {
 h1 {font-weight: 20px;
     font-size: 60px;
     text-align: center;
+    font-style: oblique;
+}
+h2 {font-weight: 20px;
+    font-size: 40px;
+    text-align: center;
 }
 
 img { margin-left: 200px;
+    border-radius: 30%;
 }
-p, ul, ol, li {font-weight: 20px;
-    font-size: 50px;
+p {font-weight: 20px;
+    font-size: 30px;
+    text-align: left;
+    color: darkred;
+}
+
+ul, ol, li {font-weight: 20px;
+    font-size: 20px;
     text-align: center;
 }
 body{ margin-top: 10px;
