@@ -15,14 +15,15 @@ body {
     text-decoration: black ;
     font-size: 30px;
     width: 25%; 
-    text-align: center; }
+    text-align: center; 
+}
 header {
     margin-left: 20px;
     background-color:bisque;
     }
 
 #locations { background-color: bisque;
-    margin-top: 20px;
+    margin-top: 50px;
     font-size: 40px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: oblique;
@@ -87,9 +88,7 @@ form {
 tr:nth-child(even) { 
     background-color: lightgray
 }
-/* legend {
-    padding: 10px;
-} */
+
 button {font-size: 20px;
     background-color: salmon;
     box-shadow: grey;
@@ -99,6 +98,8 @@ button {font-size: 20px;
 
 #merch {
     font-size: 50px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 placeholder {
     text-align: center;
