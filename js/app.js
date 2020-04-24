@@ -62,11 +62,8 @@ new StoresData('Paris', 20, 38, 2.3);
 new StoresData('Lima', 2, 16, 4.6);
 
 
-function handleUpdate(event) {
+function handleUpdate(event){
   event.preventDefault();
-
-  console.log('hello');
-
   var formLoc = event.target.formLoc.value;
   var formMin = parseInt(event.target.formMin.value);
   var formMax = parseInt(event.target.formMax.value);
@@ -75,12 +72,11 @@ function handleUpdate(event) {
   var storesData = new StoresData(formLoc, formMin, formMax, formAvg);
   storesData.render();
 
-  renderFooter();
 }
 
-form.addEventListener('Update', handleUpdate);
+form.addEventListener('submit', handleUpdate);
 
-function renderHeader() {
+function renderHeader(){
   var tr = createElement('tr', '', thead);
   console.log(tr);
   createElement('th', '', tr);
@@ -103,9 +99,10 @@ function renderFooter(){
   tfoot.textContect = '';
   var tr = createElement('tr','', tfoot);
   createElement('td','Totals',tr);
-  var totals = 0;
 
+  var totals = 0;
   for (var i = 0; i < hoursOP.length; i++){
+
     var hourlyTotals =0;
     for (var j = 0; j < newStoreArr.length; j++){
       hourlyTotals += newStoreArr[j].tlCookiesNeeded[i];
