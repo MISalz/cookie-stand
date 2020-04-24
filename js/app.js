@@ -3,7 +3,7 @@
 var hoursOP = ['6am','7am','8am','9am','10am','11am','12am','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 var newStoreArr =[];
 
-var table = document.getElementById('stores');
+// var table = document.getElementById('stores');
 var thead = document.getElementsByTagName('thead')[0];
 var tbody = document.getElementById('data');
 var tfoot = document.getElementsByTagName('tfoot')[0];
@@ -54,6 +54,7 @@ function createElement(element, content, parent){
   return newElement;
 }
 
+
 new StoresData('Seattle', 23, 65, 6.3);
 new StoresData('Tokyo', 3 , 24, 1.2);
 new StoresData('Dubai',11, 38, 3.7);
@@ -61,27 +62,31 @@ new StoresData('Paris', 20, 38, 2.3);
 new StoresData('Lima', 2, 16, 4.6);
 
 
-function handleupdate(event){
+function handleUpdate(event) {
   event.preventDefault();
+
+  console.log('hello');
+
   var formLoc = event.target.formLoc.value;
-  var formMin = parseInt(event.target.formMin);
-  var formMax = parseInt(event.target.formMax);
-  var formAvg = parseInt(event.target.formAvg);
+  var formMin = parseInt(event.target.formMin.value);
+  var formMax = parseInt(event.target.formMax.value);
+  var formAvg = parseInt(event.target.formAvg.value);
 
   var storesData = new StoresData(formLoc, formMin, formMax, formAvg);
   storesData.render();
+
   renderFooter();
 }
 
-form.addEventListener('update', handleupdate);
+form.addEventListener('Update', handleUpdate);
 
 function renderHeader() {
   var tr = createElement('tr', '', thead);
   console.log(tr);
-  createElement('th','',tr);
+  createElement('th', '', tr);
 
   for (var i=0; i < hoursOP.length; i++){
-    createElement('th',hoursOP[i], tr);
+    createElement('th', hoursOP[i], tr);
   }
   createElement('th','Daily Location Total', tr);
 }
