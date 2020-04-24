@@ -4,47 +4,58 @@
     <link href="css/reset.css" type="text/css" rel="stylesheet">
     <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
-<header>
-    <h1>Pat's Bakery</h1>
-    <nav class="navbar"> 
-        <a href="index.html" >Home</a>  
-        <a href="sales.html" >Sales</a>  
-    </nav>
-</header>
 <body>
+    <header>
+        <h1>Pat's Bakery</h1>
+        <nav class="navbar"> 
+            <a href="index.html" >Home</a>  
+            <a href="sales.html" >Sales</a>  
+        </nav>
+    </header>
     <h1> Cookies Now Available!</h1>
     <img class="salmon" src="images/salmon.png">
     <br>
     <br>
-        <div id ="Locations">
+        <div id="Locations">
     </div><br><br>
 
-<script src="js/app.js"></script>
+
 <table id="stores">
     <h1>Sales table</h1>
     <thead></thead>
-    <tbody id = "data"></tbody>
+    <tbody id="data"></tbody>
     <tfoot></tfoot>
 </table>
 
 <form id="addLocation">
+
 <fieldset>
+
     <legend>Update List</legend><br>
-    <label>formLoc</label>
-    <input placeholder="Store Name">
-    <label>formMin</label>
-    <input placeholder="0"><br> 
-    <label>formMax</label>
-    <input placeholder="100">
-    <label>formAvg</label>
-    <input placeholder="0.0"><br><br>
-    <button value="update">Update</button>
+
+    <label>Location Name</label>
+    <input id="formLoc" type="text" placeholder="Store Name" required="required">
+
+    <label>Min Customers</label>
+    <input id="formMin" type="number" placeholder="0" required="required"><br> 
+
+    <label>Max Customers</label>
+    <input id="formMax" type="number" placeholder="100" required="required">
+
+    <label>Avg Customers</label>
+    <input id="formAvg" type="number" placeholder="0" required="required"><br><br>
+
+    <button value="Update">Update</button>
+
 </fieldset>
 
 </form>
+    <footer>
+    &copy; MiSalz codefellows salmon_cookie_project_04_2020
+    </footer>
 <script src="js/app.js"></script>
-</body><br>
-<footer>
-&copy; MiSalz codefellows salmon_cookie_project_04_2020
-</footer>
+
+</body>
+
+
 
