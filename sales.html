@@ -19,27 +19,30 @@
         <div id ="Locations">
     </div><br><br>
 
+<script src="js/app.js"></script>
 <table id="stores">
     <h1>Sales table</h1>
-<script src="js/app.js"></script>
+    <thead></thead>
+    <tbody id = "data"></tbody>
+    <tfoot></tfoot>
 </table>
 
-<form id="addlocation">
+<form id="addLocation">
 <fieldset>
     <legend>Update List</legend><br>
-    <label>Location</label>
+    <label>formLoc</label>
     <input placeholder="Store Name">
-    <label>MinCustomer</label>
+    <label>formMin</label>
     <input placeholder="0"><br> 
-    <label>MaxCustomer</label>
+    <label>formMax</label>
     <input placeholder="100">
-    <label>AvgCookies</label>
+    <label>formAvg</label>
     <input placeholder="0.0"><br><br>
-    <button>Update</button>
+    <button value="update">Update</button>
 </fieldset>
 
 </form>
-
+<script src="js/app.js"></script>
 </body><br>
 <footer>
 &copy; MiSalz codefellows salmon_cookie_project_04_2020
